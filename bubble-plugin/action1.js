@@ -1,20 +1,3 @@
-/**
- * CalSync - Generate Add-to-Calendar Links
- * Bubble.io Plugin Action
- *
- * Inputs:
- *   - event_title (text, required)
- *   - start_datetime (date, required)
- *   - end_datetime (date, required)
- *   - description (text, optional)
- *   - location (text, optional)
- *
- * Outputs:
- *   - google_url (text)
- *   - apple_url (text)
- *   - outlook_url (text)
- *   - yahoo_url (text)
- */
 function(properties, context) {
   var payload = {
     title: properties.event_title,
@@ -24,7 +7,7 @@ function(properties, context) {
     location: properties.location || ""
   };
 
-  return fetch("https://calsync.playerdatainsights.com/api/calendar/add-link", {
+  return fetch("https://player-predictions-api-kicvq.ondigitalocean.app/calsync/api/calendar/add-link", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify(payload)
