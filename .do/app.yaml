@@ -1,0 +1,14 @@
+name: calsync-api
+services:
+- name: api
+  github:
+    repo: C0n0r92/calsync-api
+    branch: main
+    deploy_on_push: true
+  run_command: gunicorn app:app --bind 0.0.0.0:8080
+  environment_slug: python
+  instance_size_slug: apps-s-1vcpu-0.5gb
+  instance_count: 1
+  http_port: 8080
+  routes:
+  - path: /
